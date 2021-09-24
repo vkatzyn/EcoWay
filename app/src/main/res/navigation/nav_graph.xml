@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragmentEntry">
+
+    <fragment
+        android:id="@+id/fragmentEntry"
+        android:name="com.bgu.ecoway.FragmentEntry"
+        android:label="fragment_entry"
+        tools:layout="@layout/fragment_entry" >
+        <action
+            android:id="@+id/action_fragmentEntry_to_fragmentLocations"
+            app:destination="@id/fragmentLocations" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentLocations"
+        android:name="com.bgu.ecoway.FragmentLocations"
+        android:label="fragment_locations"
+        tools:layout="@layout/fragment_locations" />
+</navigation>

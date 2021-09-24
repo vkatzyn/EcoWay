@@ -1,0 +1,2 @@
+rootProject.name = "EcoWay"
+include ':app'
