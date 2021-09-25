@@ -1,5 +1,9 @@
 plugins {
     id 'com.android.application'
+    id 'dagger.hilt.android.plugin'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'androidx.navigation.safeargs'
 }
 
 android {
@@ -45,5 +49,18 @@ dependencies {
     implementation "androidx.navigation:navigation-ui:$nav_version"
 
     implementation 'com.google.code.gson:gson:2.8.6'
+
+    //Retrofit 2 for REST
+    def retrofit_version = "2.9.0"
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-scalars:$retrofit_version"
+
+    implementation "com.google.dagger:hilt-android:$hilt_version"
+    kapt "com.google.dagger:hilt-compiler:$hilt_version"
+    implementation 'androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03'
+
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.9.0'
+
 
 }

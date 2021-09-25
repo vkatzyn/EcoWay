@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:layout_constraintTop_toBottomOf="@id/choose_on_map_layout"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:id="@+id/favorites_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:showIn="@layout/fragment_entry">
+
+    <TextView
+        android:id="@+id/favorite_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAllCaps="true"
+        android:textSize="13sp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="14dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:fontFamily="@font/nunitosans_regular"
+        android:text="Избранное" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/favorite_1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/favorite_text"
+        android:background="@color/white"
+        android:layout_width="0dp"
+        android:layout_height="82dp">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/favorite_icon_1"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.Button.Circle"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            app:contentPadding="6dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="#8BCD85"
+            android:tint="@color/white"
+            android:src="@drawable/ic_home" />
+
+        <TextView
+            android:id="@+id/favorite_title_1"
+            app:layout_constraintStart_toEndOf="@id/favorite_icon_1"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/favorite_desc_1"
+            android:text="Дом"
+            android:textSize="16sp"
+            android:layout_marginTop="22dp"
+            android:letterSpacing="0"
+            android:layout_marginStart="21dp"
+            android:textColor="#77000000"
+            android:fontFamily="@font/nunitosans_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/favorite_desc_1"
+            app:layout_constraintStart_toEndOf="@id/favorite_icon_1"
+            app:layout_constraintTop_toBottomOf="@id/favorite_title_1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:text="Добавить адрес"
+            android:textSize="14sp"
+            android:letterSpacing="0"
+            android:layout_marginStart="21dp"
+            android:layout_marginBottom="22dp"
+            android:layout_marginTop="6dp"
+            android:textColor="#1599C6"
+            android:fontFamily="@font/nunitosans_semibold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/favorite_2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/favorite_1"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@color/white"
+        android:layout_width="0dp"
+        android:layout_height="82dp">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/favorite_icon_2"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.Button.Circle"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            app:contentPadding="6dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="#FEB781"
+            android:tint="@color/white"
+            android:src="@drawable/ic_job" />
+
+        <TextView
+            android:id="@+id/favorite_title_2"
+            app:layout_constraintStart_toEndOf="@id/favorite_icon_2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/favorite_desc_2"
+            android:text="Работа"
+            android:textSize="16sp"
+            android:layout_marginTop="22dp"
+            android:letterSpacing="0"
+            android:layout_marginStart="21dp"
+            android:textColor="#77000000"
+            android:fontFamily="@font/nunitosans_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/favorite_desc_2"
+            app:layout_constraintStart_toEndOf="@id/favorite_icon_2"
+            app:layout_constraintTop_toBottomOf="@id/favorite_title_2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:text="Добавить адрес"
+            android:textSize="14sp"
+            android:letterSpacing="0"
+            android:layout_marginStart="21dp"
+            android:layout_marginBottom="22dp"
+            android:layout_marginTop="6dp"
+            android:textColor="#1599C6"
+            android:fontFamily="@font/nunitosans_semibold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/favorite_3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/favorite_2"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@color/white"
+        android:layout_width="0dp"
+        android:layout_height="82dp">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/favorite_icon_3"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.Button.Circle"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            app:contentPadding="6dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="#FF8D90"
+            android:tint="@color/white"
+            android:src="@drawable/ic_lovefull" />
+
+        <TextView
+            android:id="@+id/favorite_title_3"
+            app:layout_constraintStart_toEndOf="@id/favorite_icon_3"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/favorite_desc_3"
+            android:text="Другое место"
+            android:textSize="16sp"
+            android:layout_marginTop="22dp"
+            android:letterSpacing="0"
+            android:layout_marginStart="21dp"
+            android:textColor="#77000000"
+            android:fontFamily="@font/nunitosans_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/favorite_desc_3"
+            app:layout_constraintStart_toEndOf="@id/favorite_icon_3"
+            app:layout_constraintTop_toBottomOf="@id/favorite_title_3"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:text="Добавить адрес"
+            android:textSize="14sp"
+            android:letterSpacing="0"
+            android:layout_marginStart="21dp"
+            android:layout_marginBottom="22dp"
+            android:layout_marginTop="6dp"
+            android:textColor="#1599C6"
+            android:fontFamily="@font/nunitosans_semibold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

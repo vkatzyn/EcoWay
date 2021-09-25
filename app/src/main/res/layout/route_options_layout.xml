@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/route_options_layout"
+    app:layout_constraintTop_toBottomOf="@id/address_inputs_layout"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    tools:showIn="@layout/fragment_entry">
+
+    <View
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="#F3F3F3" />
+
+    <TextView
+        android:id="@+id/cycle_route_chip"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="28dp"
+        android:background="@drawable/rounded_view_20dp"
+        android:backgroundTint="#FCE9EB"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:textSize="14sp"
+        android:fontFamily="@font/nunitosans_semibold"
+        android:textColor="#D4403C"
+        android:drawablePadding="4dp"
+        android:paddingStart="6dp"
+        android:paddingEnd="8dp"
+        android:drawableStart="@drawable/ic_cycle"
+        android:text="2 ч 38 мин" />
+
+    <TextView
+        android:id="@+id/bus_route_chip"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@id/auto_route_chip"
+        android:fontFamily="@font/nunitosans_semibold"
+        app:layout_constraintStart_toEndOf="@id/cycle_route_chip"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="wrap_content"
+        android:drawablePadding="4dp"
+        android:text="1 ч 24 мин"
+        android:textColor="#A0A0A0"
+        android:drawableTint="#A0A0A0"
+        android:drawableStart="@drawable/ic_bus"
+        android:layout_height="28dp" />
+
+
+    <TextView
+        android:id="@+id/auto_route_chip"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:textSize="14sp"
+        android:fontFamily="@font/nunitosans_semibold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginEnd="32dp"
+        android:layout_width="wrap_content"
+        android:drawablePadding="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="58 мин"
+        android:textColor="#A0A0A0"
+        android:drawableTint="#A0A0A0"
+        android:drawableStart="@drawable/ic_carsharing"
+        android:layout_height="28dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

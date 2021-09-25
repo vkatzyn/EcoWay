@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="routeSuggestion"
+            type="com.bgu.ecoway.data.RouteSuggestion" />
+
+        <variable
+            name="viewModel"
+            type="com.bgu.ecoway.MainViewModel" />
+
+    </data>
+    
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginEnd="8dp"
+        android:layout_width="95dp"
+        android:layout_height="71dp">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            app:layout_constraintStart_toStartOf="parent"
+            android:background="@drawable/rounded_view_8dp"
+            android:backgroundTint="#F5F5F5"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="87dp"
+            android:layout_height="60dp">
+
+            <TextView
+                android:id="@+id/route_minutes"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginStart="12dp"
+                android:textSize="15sp"
+                android:textColor="#000000"
+                android:fontFamily="@font/nunitosans_semibold"
+                android:layout_height="wrap_content"
+                tools:text="42 мин"
+                android:text="@{routeSuggestion.time}"
+                app:layout_constraintBottom_toTopOf="@id/route_distance"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+
+            <TextView
+                android:id="@+id/route_distance"
+                tools:text="12 км"
+                android:fontFamily="@font/nunitosans_regular"
+                android:textColor="#77000000"
+                android:textSize="13sp"
+                android:layout_marginBottom="12dp"
+                android:layout_marginStart="12dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{routeSuggestion.distance}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/route_minutes"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <TextView
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/eco_score"
+            android:textColor="@color/white"
+            android:drawableTint="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"
+            android:backgroundTint="#7FD05F"
+            android:text="@{routeSuggestion.ecoScore}"
+            android:background="@drawable/rounded_view_20dp"
+            android:drawableStart="@drawable/ic_leaf"
+            tools:text="100%"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/address_inputs_layout"
+    android:layout_width="0dp"
+    android:layout_height="88dp"
+    android:background="@color/white"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    tools:showIn="@layout/fragment_entry">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/arrowBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:src="@drawable/ic_arrow"
+        android:tint="#D4403C"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/startPointInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="64dp"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
+        app:endIconMode="clear_text"
+        app:endIconDrawable="@drawable/ic_close"
+        app:hintEnabled="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/arrowBack"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="6dp"
+            android:fontFamily="@font/nunitosans_semibold"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            android:drawableStart="@drawable/ic_point"
+            android:background="@color/white"
+            android:paddingTop="0dp"
+            android:text="Мое местоположение"
+            tools:text="Мое местоположение" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/endPointInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="64dp"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
+        app:endIconMode="clear_text"
+        app:endIconDrawable="@drawable/ic_close"
+        app:hintEnabled="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/arrowBack"
+        app:layout_constraintTop_toBottomOf="@id/startPointInput">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="6dp"
+            android:fontFamily="@font/nunitosans_semibold"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            android:drawableStart="@drawable/ic_location_small"
+            android:background="@color/white"
+            android:hint="Куда..."
+            android:paddingTop="8dp"
+            tools:text="Южнобутовская улица 29 к3" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ImageView
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:src="@drawable/ic_swap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:tint="#D4403C" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

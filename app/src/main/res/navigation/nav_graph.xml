@@ -7,16 +7,9 @@
 
     <fragment
         android:id="@+id/fragmentEntry"
-        android:name="com.bgu.ecoway.FragmentEntry"
+        android:name="com.bgu.ecoway.ui.FragmentEntry"
         android:label="fragment_entry"
         tools:layout="@layout/fragment_entry" >
-        <action
-            android:id="@+id/action_fragmentEntry_to_fragmentLocations"
-            app:destination="@id/fragmentLocations" />
+
     </fragment>
-    <fragment
-        android:id="@+id/fragmentLocations"
-        android:name="com.bgu.ecoway.FragmentLocations"
-        android:label="fragment_locations"
-        tools:layout="@layout/fragment_locations" />
 </navigation>

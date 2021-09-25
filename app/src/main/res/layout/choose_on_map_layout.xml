@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<TextView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/choose_on_map_layout"
+    android:layout_width="match_parent"
+    android:layout_marginTop="10dp"
+    android:layout_height="52dp"
+    app:layout_constraintTop_toBottomOf="@id/address_inputs_layout"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:gravity="center_vertical|start"
+    android:drawablePadding="16dp"
+    android:textSize="15sp"
+    android:fontFamily="@font/nunitosans_regular"
+    android:textColor="#000000"
+    android:drawableTint="#44000000"
+    android:background="@drawable/rounded_view_6dp"
+    android:backgroundTint="@color/white"
+    android:paddingStart="16dp"
+    android:drawableStart="@drawable/ic_location"
+    android:text="Указать на карте"
+    tools:showIn="@layout/fragment_entry" />
+
+    
