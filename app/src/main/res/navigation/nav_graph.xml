@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/fragmentEntry">
+    app:startDestination="@id/splashFragment">
 
     <fragment
         android:id="@+id/fragmentEntry"
@@ -12,4 +12,9 @@
         tools:layout="@layout/fragment_entry" >
 
     </fragment>
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.bgu.ecoway.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" /><action android:id="@+id/action_global_fragmentEntry" app:destination="@id/fragmentEntry"/>
 </navigation>

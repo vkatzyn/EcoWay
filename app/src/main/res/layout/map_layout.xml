@@ -1,117 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
 
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:id="@+id/map_layout"
-    android:layout_height="0dp"
-    android:background="@drawable/map"
-    android:layout_marginBottom="176dp"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@id/address_inputs_layout"
-    tools:showIn="@layout/fragment_entry">
+    </data>
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/buttonLike"
-        style="@style/RoundButton"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        app:icon="@drawable/ic_like"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/map_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="176dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.Button.Circle" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/buttonMenu"
-        style="@style/RoundButton"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        app:icon="@drawable/ic_menu"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.Button.Circle" />
+        tools:showIn="@layout/fragment_entry">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/buttonSearch"
-        style="@style/RoundButton"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        app:icon="@drawable/ic_search"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.Button.Circle" />
+        <com.mapbox.mapboxsdk.maps.MapView
+            android:id="@+id/map_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/buttonRoute"
-        style="@style/RoundButton"
-        android:layout_width="171dp"
-        android:layout_marginBottom="16dp"
-        android:fontFamily="@font/nunitosans_semibold"
-        android:lineHeight="16sp"
-        android:text="Куда поедем?"
-        android:textAllCaps="false"
-        android:textColor="#44000000"
-        android:textSize="15sp"
-        android:letterSpacing="0"
-        app:icon="@drawable/ic_route"
-        app:iconPadding="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.Button.Circle" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonLike"
+            style="@style/RoundButton"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            app:icon="@drawable/ic_like"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.Button.Circle" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/buttonLayers"
-        style="@style/RoundButton"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        app:icon="@drawable/ic_layers"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.Button.Circle" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonMenu"
+            style="@style/RoundButton"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            app:icon="@drawable/ic_menu"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.Button.Circle" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/buttonNavi"
-        style="@style/RoundButton"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="32dp"
-        app:icon="@drawable/ic_navi"
-        app:layout_constraintBottom_toTopOf="@id/buttonSearch"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.Button.Circle" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonSearch"
+            style="@style/RoundButton"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            app:icon="@drawable/ic_search"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.Button.Circle" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/buttonPlus"
-        style="@style/RoundButton"
-        android:layout_marginEnd="16dp"
-        app:icon="@drawable/ic_plus"
-        app:layout_constraintBottom_toTopOf="@id/buttonMinus"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay_TopCorners" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonRoute"
+            style="@style/RoundButton"
+            android:layout_width="171dp"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="@font/nunitosans_semibold"
+            android:letterSpacing="0"
+            android:lineHeight="16sp"
+            android:text="Куда поедем?"
+            android:textAllCaps="false"
+            android:textColor="#44000000"
+            android:textSize="15sp"
+            app:icon="@drawable/ic_route"
+            app:iconPadding="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.Button.Circle" />
 
-    <View
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:background="#33000000"
-        app:layout_constraintBottom_toTopOf="@id/buttonMinus"
-        app:layout_constraintEnd_toEndOf="@id/buttonMinus"
-        app:layout_constraintStart_toStartOf="@id/buttonMinus"
-        app:layout_constraintTop_toBottomOf="@id/buttonPlus" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonLayers"
+            style="@style/RoundButton"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            app:icon="@drawable/ic_layers"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.Button.Circle" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/buttonMinus"
-        style="@style/RoundButton"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        app:icon="@drawable/ic_minus"
-        app:layout_constraintBottom_toTopOf="@id/buttonNavi"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay_BottomCorners" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonNavi"
+            style="@style/RoundButton"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="32dp"
+            app:icon="@drawable/ic_navi"
+            app:layout_constraintBottom_toTopOf="@id/buttonSearch"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.Button.Circle" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonPlus"
+            style="@style/RoundButton"
+            android:layout_marginEnd="16dp"
+            app:icon="@drawable/ic_plus"
+            app:layout_constraintBottom_toTopOf="@id/buttonMinus"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay_TopCorners" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="#33000000"
+            app:layout_constraintBottom_toTopOf="@id/buttonMinus"
+            app:layout_constraintEnd_toEndOf="@id/buttonMinus"
+            app:layout_constraintStart_toStartOf="@id/buttonMinus"
+            app:layout_constraintTop_toBottomOf="@id/buttonPlus" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonMinus"
+            style="@style/RoundButton"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            app:icon="@drawable/ic_minus"
+            app:layout_constraintBottom_toTopOf="@id/buttonNavi"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay_BottomCorners" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

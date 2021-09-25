@@ -21,10 +21,24 @@ buildscript {
 
 allprojects {
     repositories {
+        maven {
+            url 'https://api.mapbox.com/downloads/v2/releases/maven'
+            authentication {
+                basic(BasicAuthentication)
+            }
+            credentials {
+                username = 'mapbox'
+                password = "sk.eyJ1IjoibnZiYWhvb2wiLCJhIjoiY2t0ejdjdWRkMGMxNjJvcGd5amwyM2Q4aSJ9.1afX4Dh36hHXI7WZApLpwg"
+            }
+        }
+        maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
         google()
         mavenCentral()
         jcenter() // Warning: this repository is going to shut down soon
     }
+
+
+
 }
 
 task clean(type: Delete) {
