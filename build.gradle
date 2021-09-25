@@ -31,7 +31,6 @@ allprojects {
                 password = "sk.eyJ1IjoibnZiYWhvb2wiLCJhIjoiY2t0ejdjdWRkMGMxNjJvcGd5amwyM2Q4aSJ9.1afX4Dh36hHXI7WZApLpwg"
             }
         }
-        maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
         google()
         mavenCentral()
         jcenter() // Warning: this repository is going to shut down soon
