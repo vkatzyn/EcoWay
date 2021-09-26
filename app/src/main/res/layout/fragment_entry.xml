@@ -67,7 +67,7 @@
 
         <View
             android:background="@color/white"
-            android:alpha="0.0"
+            android:alpha="1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"

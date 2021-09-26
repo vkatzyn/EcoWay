@@ -24,6 +24,10 @@
         android:id="@+id/strollsFragment"
         android:name="com.bgu.ecoway.StrollsFragment"
         android:label="fragment_strolls"
-        tools:layout="@layout/fragment_strolls" />
+        tools:layout="@layout/fragment_strolls" >
+        <action
+            android:id="@+id/action_strollsFragment_to_fragmentEntry"
+            app:destination="@id/fragmentEntry" />
+    </fragment>
     <action android:id="@+id/action_global_strollsFragment" app:destination="@id/strollsFragment" />
 </navigation>

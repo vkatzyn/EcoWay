@@ -11,6 +11,8 @@ import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.lineJoin;
 import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.lineWidth;
 
 import android.animation.Animator;
+import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -18,6 +20,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -127,6 +130,7 @@ public class FragmentEntry extends Fragment implements OnMapReadyCallback, Permi
                 binding.mapLayout.buttonRoute.setVisibility(View.GONE);
                 binding.chooseOnMapLayout.chooseOnMapLayout.setVisibility(View.GONE);
                 binding.routeSuggestionsLayout.routeSuggestionsLayout.setVisibility(View.VISIBLE);
+                hideKeyboardFrom(requireContext(), binding.addressInputsLayout.endPointEt);
                 return false;
             }
         });
@@ -186,6 +190,7 @@ public class FragmentEntry extends Fragment implements OnMapReadyCallback, Permi
                 new Style.OnStyleLoaded() {
                     @Override
                     public void onStyleLoaded(@NonNull @NotNull Style style) {
+                        binding.rectt.animate().alpha(0).setDuration(400);
                         enableLocationComponent(style);
                         initRouteCoordinates();
                         // Create the LineString from the list of coordinates and then make a GeoJSON
@@ -333,4 +338,8 @@ public class FragmentEntry extends Fragment implements OnMapReadyCallback, Permi
 
     }
 
+    public static void hideKeyboardFrom(Context context, View view) {
+        InputMethodManager imm = (InputMethodManager) context.getSystemService(Activity.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+    }
 }

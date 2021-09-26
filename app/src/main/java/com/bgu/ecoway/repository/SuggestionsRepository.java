@@ -33,10 +33,10 @@ public class SuggestionsRepository {
 //            }
 //        });
         List<AddressSuggestion> list = new ArrayList<>();
-        list.add(new AddressSuggestion("Южнобутовская улица 29 к3", "Москва", "253 м"));
+        list.add(new AddressSuggestion("Южнобутовская улица 3", "Москва", "253 м"));
         list.add(new AddressSuggestion("Южнобутовская улица 30 к3", "Москва", "253 м"));
-        list.add(new AddressSuggestion("Южнобутовская улица 31 к3", "Москва", "253 м"));
-        list.add(new AddressSuggestion("Южнобутовская улица 32 к3", "Москва", "253 м"));
+        list.add(new AddressSuggestion("Южнобутовская улица 71", "Москва", "253 м"));
+        list.add(new AddressSuggestion("Южнобутовская улица 77", "Москва", "253 м"));
         addressSuggestions.setValue(list);
         return addressSuggestions;
     }

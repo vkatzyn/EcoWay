@@ -10,6 +10,7 @@ import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.lineGradient;
 import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.lineJoin;
 import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.lineWidth;
 
+import android.animation.Animator;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +20,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.bgu.ecoway.adapters.StrollAdapter;
@@ -65,12 +68,14 @@ public class StrollsFragment extends Fragment implements OnMapReadyCallback, Per
     private List<Point> routeCoordinatesBlvd;
     private double[] scoresBlvd;
     private double[] scoresVorob;
+    NavController navController;
 
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         strollsViewModel = new ViewModelProvider(this).get(StrollsViewModel.class);
         Mapbox.getInstance(requireContext(), NetworkConstants.MAPBOX_DEFAULT_PUBLIC_TOKEN);
+        navController = NavHostFragment.findNavController(this);
         super.onCreate(savedInstanceState);
     }
 
@@ -105,6 +110,32 @@ public class StrollsFragment extends Fragment implements OnMapReadyCallback, Per
                 }
                 CameraPosition cameraPosition = builder.build();
                 mapboxMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition), 3000);
+            }
+        });
+        binding.arrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                binding.rectt.animate().alpha(1).setDuration(400).setListener(new Animator.AnimatorListener() {
+                    @Override
+                    public void onAnimationStart(Animator animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        navController.navigate(R.id.action_strollsFragment_to_fragmentEntry);
+                    }
+
+                    @Override
+                    public void onAnimationCancel(Animator animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animator animation) {
+
+                    }
+                });
             }
         });
         return binding.getRoot();

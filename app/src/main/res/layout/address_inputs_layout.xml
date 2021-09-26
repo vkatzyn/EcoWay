@@ -79,6 +79,7 @@
             android:fontFamily="@font/nunitosans_semibold"
             android:textColor="#000000"
             android:textSize="15sp"
+            android:inputType="textNoSuggestions"
             android:drawableStart="@drawable/ic_location_small"
             android:background="@color/white"
             android:hint="Куда..."
