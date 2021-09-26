@@ -3,4 +3,11 @@
     <color name="primaryColor">#777777</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="chosen_route">#F5F5F5</color>
+    <color name="disable_route">#FFFFFF</color>
+    <color name="opaq_black">#77000000</color>
+    <color name="very_opaq_black">#33000000</color>
+    <color name="greeny">#7FD05F</color>
+    <color name="opaq_greeny">#447FD05F</color>
+
 </resources>

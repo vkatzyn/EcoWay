@@ -9,13 +9,16 @@
             name="routeSuggestion"
             type="com.bgu.ecoway.data.RouteSuggestion" />
 
+
         <variable
             name="viewModel"
-            type="com.bgu.ecoway.MainViewModel" />
+            type="com.bgu.ecoway.viewmodel.MainViewModel" />
 
     </data>
     
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/item_route"
+        android:onClick="@{ () -> viewModel.setCurrentRouteSuggestion(routeSuggestion)}"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="15dp"
         android:layout_marginEnd="8dp"
@@ -26,7 +29,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             app:layout_constraintStart_toStartOf="parent"
             android:background="@drawable/rounded_view_8dp"
-            android:backgroundTint="#F5F5F5"
+            android:backgroundTint="@{ true ? @color/chosen_route : @color/disable_route}"
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_width="87dp"
             android:layout_height="60dp">
@@ -37,7 +40,7 @@
                 android:layout_marginTop="12dp"
                 android:layout_marginStart="12dp"
                 android:textSize="15sp"
-                android:textColor="#000000"
+                android:textColor="@{true ? @color/black : @color/opaq_black}"
                 android:fontFamily="@font/nunitosans_semibold"
                 android:layout_height="wrap_content"
                 tools:text="42 мин"
@@ -51,7 +54,7 @@
                 android:id="@+id/route_distance"
                 tools:text="12 км"
                 android:fontFamily="@font/nunitosans_regular"
-                android:textColor="#77000000"
+                android:textColor="@{true ? @color/opaq_black : @color/very_opaq_black}"
                 android:textSize="13sp"
                 android:layout_marginBottom="12dp"
                 android:layout_marginStart="12dp"
@@ -75,7 +78,7 @@
             android:layout_height="20dp"
             android:paddingStart="4dp"
             android:paddingEnd="4dp"
-            android:backgroundTint="#7FD05F"
+            android:backgroundTint="@{true ? @color/greeny : @color/opaq_greeny}"
             android:text="@{routeSuggestion.ecoScore}"
             android:background="@drawable/rounded_view_20dp"
             android:drawableStart="@drawable/ic_leaf"

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/splashFragment">
+    app:startDestination="@id/fragmentEntry">
 
     <fragment
         android:id="@+id/fragmentEntry"
@@ -11,10 +11,19 @@
         android:label="fragment_entry"
         tools:layout="@layout/fragment_entry" >
 
+        <action
+            android:id="@+id/action_fragmentEntry_to_strollsFragment"
+            app:destination="@id/strollsFragment" />
     </fragment>
+<!--    <fragment-->
+<!--        android:id="@+id/splashFragment"-->
+<!--        android:name="com.bgu.ecoway.SplashFragment"-->
+<!--        android:label="fragment_splash"-->
+<!--        tools:layout="@layout/fragment_splash" /><action android:id="@+id/action_global_fragmentEntry" app:destination="@id/fragmentEntry"/>-->
     <fragment
-        android:id="@+id/splashFragment"
-        android:name="com.bgu.ecoway.SplashFragment"
-        android:label="fragment_splash"
-        tools:layout="@layout/fragment_splash" /><action android:id="@+id/action_global_fragmentEntry" app:destination="@id/fragmentEntry"/>
+        android:id="@+id/strollsFragment"
+        android:name="com.bgu.ecoway.StrollsFragment"
+        android:label="fragment_strolls"
+        tools:layout="@layout/fragment_strolls" />
+    <action android:id="@+id/action_global_strollsFragment" app:destination="@id/strollsFragment" />
 </navigation>

@@ -6,11 +6,9 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 
-import com.bgu.ecoway.MainViewModel;
+import com.bgu.ecoway.viewmodel.MainViewModel;
 import com.bgu.ecoway.R;
-import com.bgu.ecoway.data.AddressSuggestion;
 import com.bgu.ecoway.data.RouteSuggestion;
-import com.bgu.ecoway.databinding.AddressSuggestionItemBinding;
 import com.bgu.ecoway.databinding.RouteSuggestionItemBinding;
 
 public class RouteSuggestionsAdapter extends BaseAdapter<RouteSuggestion, RouteSuggestionItemBinding> {
@@ -33,6 +31,7 @@ public class RouteSuggestionsAdapter extends BaseAdapter<RouteSuggestion, RouteS
         super.onBindViewHolder(holder, position);
         RouteSuggestion item = data.get(position);
         ((ViewHolder) holder).bindVariables(item, mainViewModel);
+
     }
 
     static class ViewHolder extends BaseAdapter.ViewHolder<RouteSuggestion, RouteSuggestionItemBinding> {

@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="stroll"
+            type="com.bgu.ecoway.data.Stroll" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/rounded_view_16dp"
+        android:backgroundTint="@android:color/white">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/img"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:scaleType="centerCrop"
+            android:tint="#59000000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/vorob"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay_TopCorners_16"
+            tools:src="@drawable/vorob" />
+
+        <TextView
+            android:id="@+id/title"
+            android:text="@{stroll.title}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/nunitosans_bold"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Воробьевы горы" />
+
+        <TextView
+            android:id="@+id/description"
+            android:text="@{stroll.description}"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/nunitosans_semibold"
+            android:lineSpacingMultiplier="0.9"
+            android:textColor="#BBFFFFFF"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title"
+            tools:text="Вдоль Москвы-реки в ландшафтном \nпарке. Рядом Лужники, МГУ и канатная дорога." />
+
+        <TextView
+            android:id="@+id/distance_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="11dp"
+            android:fontFamily="@font/nunitosans_regular"
+            android:text="Дистанция"
+            android:textColor="#77000000"
+            android:textSize="13sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/img" />
+
+        <TextView
+            android:id="@+id/distance_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunitosans_extrabold"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:text="@{stroll.distance}"
+            app:layout_constraintStart_toStartOf="@id/distance_title"
+            app:layout_constraintTop_toBottomOf="@id/distance_title"
+            tools:text="3.27 km" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="11dp"
+            android:layout_marginEnd="23.75dp"
+            android:background="#EAEAEA"
+            app:layout_constraintEnd_toStartOf="@id/time_title"
+            app:layout_constraintTop_toBottomOf="@id/img" />
+
+        <TextView
+            android:id="@+id/time_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="47.5dp"
+            android:layout_marginTop="11dp"
+            android:fontFamily="@font/nunitosans_regular"
+            android:text="Время"
+            android:textColor="#77000000"
+            android:textSize="13sp"
+            app:layout_constraintStart_toEndOf="@id/distance_title"
+            app:layout_constraintTop_toBottomOf="@id/img" />
+
+        <TextView
+            android:id="@+id/time_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunitosans_extrabold"
+            android:textColor="@color/black"
+            android:text="@{stroll.time}"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@id/time_title"
+            app:layout_constraintTop_toBottomOf="@id/time_title"
+            tools:text="2.5 ч" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="23.75dp"
+            android:layout_marginTop="11dp"
+            android:background="#EAEAEA"
+            app:layout_constraintStart_toEndOf="@id/time_title"
+            app:layout_constraintTop_toBottomOf="@id/img" />
+
+        <TextView
+            android:id="@+id/ecology_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="47.5dp"
+            android:layout_marginTop="11dp"
+            android:fontFamily="@font/nunitosans_regular"
+            android:text="Экология"
+            android:textColor="#77000000"
+            android:textSize="13sp"
+            app:layout_constraintStart_toEndOf="@id/time_title"
+            app:layout_constraintTop_toBottomOf="@id/img" />
+
+        <TextView
+            android:id="@+id/ecology_value"
+            android:layout_width="wrap_content"
+            android:text="@{stroll.ecology}"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunitosans_extrabold"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@id/ecology_title"
+            app:layout_constraintTop_toBottomOf="@id/distance_title"
+            tools:text="93%" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

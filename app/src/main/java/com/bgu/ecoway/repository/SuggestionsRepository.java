@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.bgu.ecoway.data.AddressSuggestion;
 import com.bgu.ecoway.data.RouteSuggestion;
+import com.bgu.ecoway.data.Stroll;
 import com.bgu.ecoway.network.ApiService;
 
 import java.util.ArrayList;
@@ -54,15 +55,25 @@ public class SuggestionsRepository {
 //            }
 //        });
         List<RouteSuggestion> list = new ArrayList<>();
-        list.add(new RouteSuggestion("42 мин", "12 км", "100%"));
-        list.add(new RouteSuggestion("35 мин", "7 км", "95%"));
-        list.add(new RouteSuggestion("10 мин", "2 км", "10%"));
-        list.add(new RouteSuggestion("125 мин", "30 км", "55%"));
-        list.add(new RouteSuggestion("42 мин", "12 км", "100%"));
-        list.add(new RouteSuggestion("35 мин", "7 км", "95%"));
-        list.add(new RouteSuggestion("10 мин", "2 км", "10%"));
-        list.add(new RouteSuggestion("125 мин", "30 км", "55%"));
+        list.add(new RouteSuggestion("1", "42 мин", "12 км", "100%"));
+        list.add(new RouteSuggestion("2", "35 мин", "7 км", "95%"));
+        list.add(new RouteSuggestion("3", "10 мин", "2 км", "10%"));
+        list.add(new RouteSuggestion("4", "125 мин", "30 км", "55%"));
+        list.add(new RouteSuggestion("5", "42 мин", "12 км", "100%"));
+        list.add(new RouteSuggestion("6", "35 мин", "7 км", "95%"));
+        list.add(new RouteSuggestion("7", "10 мин", "2 км", "10%"));
+        list.add(new RouteSuggestion("8", "125 мин", "30 км", "55%"));
         routeSuggestions.setValue(list);
         return routeSuggestions;
+    }
+
+    public LiveData<List<Stroll>> getStrollSuggestions() {
+        MutableLiveData<List<Stroll>> strollSuggestions = new MutableLiveData<>();
+        //todo api call
+        List<Stroll> list = new ArrayList<>();
+        list.add(new Stroll("Воробьевы горы", "Вдоль Москвы-реки в ландшафтном парке. Рядом Лужники, МГУ и канатная дорога.", null, "3.24 км", "2.5 ч", "93%"));
+        list.add(new Stroll("По бульварному кольцу", "Прогулка вокруг сердца Москвы. Увидите все сталинские высотки, а также несколько раз пересечете Москву реку.", null, "6.36 км", "4.5 ч", "53%"));
+        strollSuggestions.setValue(list);
+        return strollSuggestions;
     }
 }

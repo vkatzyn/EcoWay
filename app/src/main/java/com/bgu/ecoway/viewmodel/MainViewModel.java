@@ -1,4 +1,4 @@
-package com.bgu.ecoway;
+package com.bgu.ecoway.viewmodel;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -23,8 +23,9 @@ public class MainViewModel extends ViewModel {
     private final SuggestionsRepository suggestionsRepository;
     private final AddressSuggestionsAdapter addressSuggestionsAdapter;
     private final RouteSuggestionsAdapter routeSuggestionsAdapter;
-    public LiveData<List<AddressSuggestion>> addressSuggestions;
-    public LiveData<List<RouteSuggestion>> routeSuggestions;
+    private LiveData<List<AddressSuggestion>> addressSuggestions;
+    private LiveData<List<RouteSuggestion>> routeSuggestions;
+    private MutableLiveData<RouteSuggestion> currentRouteSuggestion = new MutableLiveData<>();
 
     @Inject
     public MainViewModel(SuggestionsRepository suggestionsRepository) {
@@ -33,6 +34,14 @@ public class MainViewModel extends ViewModel {
         routeSuggestionsAdapter = new RouteSuggestionsAdapter(this);
         addressSuggestions = suggestionsRepository.getAddressSuggestions();
         routeSuggestions = suggestionsRepository.getRouteSuggestions();
+    }
+
+    public void setCurrentRouteSuggestion(RouteSuggestion routeSuggestion) {
+        currentRouteSuggestion.setValue(routeSuggestion);
+    }
+
+    public MutableLiveData<RouteSuggestion> getCurrentRouteSuggestion() {
+        return currentRouteSuggestion;
     }
 
     public AddressSuggestionsAdapter getAddressSuggestionsAdapter() {

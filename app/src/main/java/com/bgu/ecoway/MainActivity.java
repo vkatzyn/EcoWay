@@ -13,6 +13,8 @@ import androidx.navigation.Navigation;
 
 import com.bgu.ecoway.databinding.ActivityMainBinding;
 
+import java.lang.ref.WeakReference;
+
 import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
@@ -24,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
     private ActivityResultLauncher<String[]> permissionResultLauncher;
     NavController navController;
 
+    public static WeakReference<MainActivity> instance;
+
 
     @Override
     public void onPostCreate(@Nullable Bundle savedInstanceState) {
@@ -34,15 +38,17 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        instance = new WeakReference<>(this);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
-        requestPermissionContract = new ActivityResultContracts.RequestMultiplePermissions();
-        permissionResultLauncher = this.registerForActivityResult(requestPermissionContract, isGranted -> {
-            if (isGranted.containsValue(false)) {
-                permissionResultLauncher.launch(new String[] {Manifest.permission.READ_PHONE_STATE, Manifest.permission.ACCESS_FINE_LOCATION});
-            }
-            navController.navigate(R.id.action_global_fragmentEntry);
-        });
-        permissionResultLauncher.launch(new String[] {Manifest.permission.READ_PHONE_STATE, Manifest.permission.ACCESS_FINE_LOCATION});
+//        requestPermissionContract = new ActivityResultContracts.RequestMultiplePermissions();
+//        permissionResultLauncher = this.registerForActivityResult(requestPermissionContract, isGranted -> {
+//            if (isGranted.containsValue(false)) {
+//                permissionResultLauncher.launch(new String[] {Manifest.permission.READ_PHONE_STATE, Manifest.permission.ACCESS_FINE_LOCATION});
+//            }
+//            navController.navigate(R.id.action_global_fragmentEntry);
+//            navController.navigate(R.id.action_global_strollsFragment);
+//        });
+//        permissionResultLauncher.launch(new String[] {Manifest.permission.READ_PHONE_STATE, Manifest.permission.ACCESS_FINE_LOCATION});
     }
 }

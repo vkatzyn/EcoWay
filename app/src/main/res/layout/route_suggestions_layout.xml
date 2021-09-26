@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.bgu.ecoway.MainViewModel" />
+            type="com.bgu.ecoway.viewmodel.MainViewModel" />
 
     </data>
 

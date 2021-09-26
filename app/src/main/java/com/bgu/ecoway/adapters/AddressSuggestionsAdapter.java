@@ -6,9 +6,8 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 
-import com.bgu.ecoway.MainViewModel;
+import com.bgu.ecoway.viewmodel.MainViewModel;
 import com.bgu.ecoway.R;
-import com.bgu.ecoway.adapters.BaseAdapter;
 import com.bgu.ecoway.data.AddressSuggestion;
 import com.bgu.ecoway.databinding.AddressSuggestionItemBinding;
 

@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/drawer"
+        android:layout_width="293dp"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:translationX="-293dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:showIn="@layout/fragment_entry">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/logo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="76dp"
+            android:src="@drawable/ic_group_23"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/option_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="53dp"
+            android:drawableStart="@drawable/ic_profile"
+            android:drawablePadding="12dp"
+            android:fontFamily="@font/nunitosans_bold"
+            android:gravity="center"
+            android:text="Экологичный Москвич"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/logo" />
+
+        <TextView
+            android:id="@+id/option_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="32dp"
+            android:drawableStart="@drawable/ic_chat"
+            android:drawablePadding="12dp"
+            android:fontFamily="@font/nunitosans_bold"
+            android:gravity="center"
+            android:text="Общение"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/option_1" />
+
+
+        <TextView
+            android:id="@+id/option_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="32dp"
+            android:drawableStart="@drawable/ic_payment"
+            android:drawablePadding="12dp"
+            android:fontFamily="@font/nunitosans_bold"
+            android:gravity="center"
+            android:text="Пополнить проездной"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/option_2" />
+
+        <TextView
+            android:id="@+id/option_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="32dp"
+            android:drawableStart="@drawable/ic_info"
+            android:drawablePadding="12dp"
+            android:fontFamily="@font/nunitosans_bold"
+            android:gravity="center"
+            android:text="Информация"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/option_3" />
+
+        <TextView
+            android:id="@+id/option_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="32dp"
+            android:drawableStart="@drawable/ic_buses"
+            android:drawablePadding="12dp"
+            android:fontFamily="@font/nunitosans_bold"
+            android:gravity="center"
+            android:text="Специальные маршруты"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/option_4" />
+
+        <TextView
+            android:id="@+id/option_6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="32dp"
+            android:drawableStart="@drawable/ic_metro"
+            android:drawablePadding="12dp"
+            android:fontFamily="@font/nunitosans_bold"
+            android:gravity="center"
+            android:text="Карта метро"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/option_5" />
+
+        <TextView
+            android:id="@+id/bigbutton"
+            android:layout_width="245dp"
+            android:layout_height="72dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/rounded_view_16dp"
+            android:drawableStart="@drawable/ic_frame_56"
+            android:drawablePadding="8dp"
+            android:drawableTint="@color/white"
+            android:fontFamily="@font/nunitosans_bold"
+            android:gravity="center"
+            android:insetLeft="0dp"
+            android:insetTop="0dp"
+            android:insetRight="0dp"
+            android:insetBottom="0dp"
+            android:paddingStart="16dp"
+            android:text="Прогулочные \nэко-маршруты"
+            android:textAlignment="textStart"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/option_6"
+            tools:ignore="RtlCompat" />
+
+        <TextView
+            android:id="@+id/option_7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="32dp"
+            android:drawableStart="@drawable/ic_settings"
+            android:drawablePadding="12dp"
+            android:fontFamily="@font/nunitosans_bold"
+            android:gravity="center"
+            android:text="Настройки"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bigbutton" />
+
+        <TextView
+            android:id="@+id/option_8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="32dp"
+            android:drawableStart="@drawable/ic_support"
+            android:drawablePadding="12dp"
+            android:fontFamily="@font/nunitosans_bold"
+            android:gravity="center"
+            android:text="Тех. поддержка"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/option_7" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
