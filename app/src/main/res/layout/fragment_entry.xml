@@ -29,12 +29,14 @@
         <include
             android:id="@+id/bus_stops_layout"
             layout="@layout/bus_stops_layout"
+            tools:visibility="gone"
             android:visibility="visible" />
 
         <include
             android:id="@+id/route_suggestions_layout"
             layout="@layout/route_suggestions_layout"
             android:visibility="gone"
+            tools:visibility="visible"
             bind:viewModel="@{viewModel}" />
 
         <include
@@ -68,6 +70,7 @@
         <View
             android:background="@color/white"
             android:alpha="1"
+            tools:visibility="gone"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"

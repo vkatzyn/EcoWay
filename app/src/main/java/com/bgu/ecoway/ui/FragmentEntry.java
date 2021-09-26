@@ -43,6 +43,9 @@ import com.mapbox.geojson.FeatureCollection;
 import com.mapbox.geojson.LineString;
 import com.mapbox.geojson.Point;
 import com.mapbox.mapboxsdk.Mapbox;
+import com.mapbox.mapboxsdk.camera.CameraPosition;
+import com.mapbox.mapboxsdk.camera.CameraUpdateFactory;
+import com.mapbox.mapboxsdk.geometry.LatLng;
 import com.mapbox.mapboxsdk.location.LocationComponent;
 import com.mapbox.mapboxsdk.location.LocationComponentActivationOptions;
 import com.mapbox.mapboxsdk.location.modes.CameraMode;
@@ -70,7 +73,13 @@ public class FragmentEntry extends Fragment implements OnMapReadyCallback, Permi
     private MapboxMap mapboxMap;
     private PermissionsManager permissionsManager;
     private List<Point> routeCoordinates;
+    private List<Point> routeCoordinates2;
+    private List<Point> routeCoordinates3;
     private NavController navController;
+    private double[] firstM;
+    private double[] secondM;
+    private double[] thirdM;
+    Style stylee;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -97,6 +106,7 @@ public class FragmentEntry extends Fragment implements OnMapReadyCallback, Permi
             binding.chooseOnMapLayout.chooseOnMapLayout.setVisibility(View.VISIBLE);
             binding.favoritesLayout.favoritesLayout.setVisibility(View.VISIBLE);
             binding.mapLayout.mapLayout.setVisibility(View.GONE);
+            applyStyles();
         });
 
         binding.addressInputsLayout.endPointEt.addTextChangedListener(new TextWatcher() {
@@ -190,35 +200,95 @@ public class FragmentEntry extends Fragment implements OnMapReadyCallback, Permi
                 new Style.OnStyleLoaded() {
                     @Override
                     public void onStyleLoaded(@NonNull @NotNull Style style) {
+                        stylee = style;
                         binding.rectt.animate().alpha(0).setDuration(400);
                         enableLocationComponent(style);
                         initRouteCoordinates();
-                        // Create the LineString from the list of coordinates and then make a GeoJSON
+
+                    }
+                });
+    }
+
+    private void applyStyles() {
+        // Create the LineString from the list of coordinates and then make a GeoJSON
 // FeatureCollection so we can add the line to our map as a layer.
-                        LineString lineString = LineString.fromLngLats(routeCoordinates);
+        LineString lineString1 = LineString.fromLngLats(routeCoordinates);
+        LineString lineString2 = LineString.fromLngLats(routeCoordinates2);
+        LineString lineString3 = LineString.fromLngLats(routeCoordinates3);
 
-                        FeatureCollection featureCollection = FeatureCollection.fromFeature(Feature.fromGeometry(lineString));
-
-                        style.addSource(new GeoJsonSource("line-source", featureCollection,
-                                new GeoJsonOptions().withLineMetrics(true)));
+        FeatureCollection featureCollection1 = FeatureCollection.fromFeature(Feature.fromGeometry(lineString1));
+        FeatureCollection featureCollection2 = FeatureCollection.fromFeature(Feature.fromGeometry(lineString2));
+        FeatureCollection featureCollection3 = FeatureCollection.fromFeature(Feature.fromGeometry(lineString3));
+        Style style = stylee;
+        style.addSource(new GeoJsonSource("linee-source1", featureCollection1,
+                new GeoJsonOptions().withLineMetrics(true)));
 
 // The layer properties for our line. This is where we set the gradient colors, set the
 // line width, etc
-                        style.addLayer(new LineLayer("linelayer", "line-source").withProperties(
-                                lineCap(Property.LINE_CAP_ROUND),
-                                lineJoin(Property.LINE_JOIN_ROUND),
-                                lineWidth(14f),
-                                lineGradient(interpolate(
-                                        linear(), lineProgress(),
-                                        stop(0f, rgb(6, 1, 255)), // blue
-                                        stop(0.1f, rgb(59, 118, 227)), // royal blue
-                                        stop(0.3f, rgb(7, 238, 251)), // cyan
-                                        stop(0.5f, rgb(0, 255, 42)), // lime
-                                        stop(0.7f, rgb(255, 252, 0)), // yellow
-                                        stop(1f, rgb(255, 30, 0)) // red
-                                ))));
-                    }
-                });
+        style.addLayer(new LineLayer("lineelayer1", "linee-source1").withProperties(
+                lineCap(Property.LINE_CAP_ROUND),
+                lineJoin(Property.LINE_JOIN_ROUND),
+                lineWidth(7f),
+                lineGradient(interpolate(
+                        linear(), lineProgress(),
+                        stop(0f, rgb((int) 255 * (1 - firstM[0]), (int) 255 * (firstM[0]), 0)),
+                        stop(0.14f, rgb((int) 255 * (1 - firstM[1]), (int) 255 * (firstM[1]), 0)),
+                        stop(0.28f, rgb((int) 255 * (1 - firstM[2]), (int) 255 * (firstM[2]), 0)),
+                        stop(0.42f, rgb((int) 255 * (1 - firstM[3]), (int) 255 * (firstM[3]), 0)),
+                        stop(0.56f, rgb((int) 255 * (1 - firstM[4]), (int) 255 * (firstM[4]), 0)),
+                        stop(0.7f, rgb((int) 255 * (1 - firstM[5]), (int) 255 * (firstM[5]), 0)),
+                        stop(0.84f, rgb((int) 255 * (1 - firstM[6]), (int) 255 * (firstM[6]), 0))
+                ))));
+
+        style.addSource(new GeoJsonSource("linee-source2", featureCollection2,
+                new GeoJsonOptions().withLineMetrics(true)));
+
+// The layer properties for our line. This is where we set the gradient colors, set the
+// line width, etc
+        style.addLayer(new LineLayer("lineelayer2", "linee-source2").withProperties(
+                lineCap(Property.LINE_CAP_ROUND),
+                lineJoin(Property.LINE_JOIN_ROUND),
+                lineWidth(4f),
+                lineGradient(interpolate(
+                        linear(), lineProgress(),
+                        stop(0f, rgb((int) 255 * (1 - secondM[0]), (int) 255 * (secondM[0]), 0)),
+                        stop(0.1f, rgb((int) 255 * (1 - secondM[1]), (int) 255 * (secondM[1]), 0)),
+                        stop(0.2f, rgb((int) 255 * (1 - secondM[2]), (int) 255 * (secondM[2]), 0)),
+                        stop(0.3f, rgb((int) 255 * (1 - secondM[3]), (int) 255 * (secondM[3]), 0)),
+                        stop(0.4f, rgb((int) 255 * (1 - secondM[4]), (int) 255 * (secondM[4]), 0)),
+                        stop(0.5f, rgb((int) 255 * (1 - secondM[5]), (int) 255 * (secondM[5]), 0)),
+                        stop(0.6f, rgb((int) 255 * (1 - secondM[6]), (int) 255 * (secondM[6]), 0)),
+                        stop(0.7f, rgb((int) 255 * (1 - secondM[7]), (int) 255 * (secondM[7]), 0)),
+                        stop(0.8f, rgb((int) 255 * (1 - secondM[8]), (int) 255 * (secondM[8]), 0)),
+                        stop(0.9f, rgb((int) 255 * (1 - secondM[9]), (int) 255 * (secondM[9]), 0))
+                ))));
+
+        style.addSource(new GeoJsonSource("linee-source3", featureCollection3,
+                new GeoJsonOptions().withLineMetrics(true)));
+
+// The layer properties for our line. This is where we set the gradient colors, set the
+// line width, etc
+        style.addLayer(new LineLayer("lineelayer3", "linee-source3").withProperties(
+                lineCap(Property.LINE_CAP_ROUND),
+                lineJoin(Property.LINE_JOIN_ROUND),
+                lineWidth(4f),
+                lineGradient(interpolate(
+                        linear(), lineProgress(),
+                        stop(0f, rgb((int) 255 * (1 - thirdM[0]), (int) 255 * (thirdM[0]), 0)),
+                        stop(0.125f, rgb((int) 255 * (1 - thirdM[1]), (int) 255 * (thirdM[1]), 0)),
+                        stop(0.25f, rgb((int) 255 * (1 - thirdM[2]), (int) 255 * (thirdM[2]), 0)),
+                        stop(0.375f, rgb((int) 255 * (1 - thirdM[3]), (int) 255 * (thirdM[3]), 0)),
+                        stop(0.5f, rgb((int) 255 * (1 - thirdM[4]), (int) 255 * (thirdM[4]), 0)),
+                        stop(0.625f, rgb((int) 255 * (1 - thirdM[5]), (int) 255 * (thirdM[5]), 0)),
+                        stop(0.750f, rgb((int) 255 * (1 - thirdM[6]), (int) 255 * (thirdM[6]), 0)),
+                        stop(0.875f, rgb((int) 255 * (1 - thirdM[7]), (int) 255 * (thirdM[7]), 0)),
+                        stop(0.9f, rgb((int) 255 * (1 - thirdM[8]), (int) 255 * (thirdM[8]), 0))
+                ))));
+
+        CameraPosition.Builder builder = new CameraPosition.Builder();
+        builder.target(new LatLng(55.538430, 37.530176)).zoom(14);
+        CameraPosition cameraPosition = builder.build();
+        mapboxMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition), 1500);
     }
 
     @SuppressWarnings({"MissingPermission"})
@@ -318,23 +388,40 @@ public class FragmentEntry extends Fragment implements OnMapReadyCallback, Permi
     private void initRouteCoordinates() {
 // Create a list to store our line coordinates.
         routeCoordinates = new ArrayList<>();
-        routeCoordinates.add(Point.fromLngLat(-77.044211, 38.852924));
-        routeCoordinates.add(Point.fromLngLat(-77.045659, 38.860158));
-        routeCoordinates.add(Point.fromLngLat(-77.044232, 38.862326));
-        routeCoordinates.add(Point.fromLngLat(-77.040879, 38.865454));
-        routeCoordinates.add(Point.fromLngLat(-77.039936, 38.867698));
-        routeCoordinates.add(Point.fromLngLat(-77.040338, 38.86943));
-        routeCoordinates.add(Point.fromLngLat(-77.04264, 38.872528));
-        routeCoordinates.add(Point.fromLngLat(-77.03696, 38.878424));
-        routeCoordinates.add(Point.fromLngLat(-77.032309, 38.87937));
-        routeCoordinates.add(Point.fromLngLat(-77.030056, 38.880945));
-        routeCoordinates.add(Point.fromLngLat(-77.027645, 38.881779));
-        routeCoordinates.add(Point.fromLngLat(-77.026946, 38.882645));
-        routeCoordinates.add(Point.fromLngLat(-77.026942, 38.885502));
-        routeCoordinates.add(Point.fromLngLat(-77.028054, 38.887449));
-        routeCoordinates.add(Point.fromLngLat(-77.02806, 38.892088));
-        routeCoordinates.add(Point.fromLngLat(-77.03364, 38.892108));
-        routeCoordinates.add(Point.fromLngLat(-77.033643, 38.899926));
+        routeCoordinates.add(Point.fromLngLat(37.528245, 55.534180));
+        routeCoordinates.add(Point.fromLngLat(37.528138, 55.534593));
+        routeCoordinates.add(Point.fromLngLat(37.528760, 55.534714));
+        routeCoordinates.add(Point.fromLngLat(37.528352, 55.535588));
+        routeCoordinates.add(Point.fromLngLat(37.530755, 55.537033));
+        routeCoordinates.add(Point.fromLngLat(37.534103, 55.537968));
+        routeCoordinates.add(Point.fromLngLat(37.533309, 55.539231));
+        routeCoordinates.add(Point.fromLngLat(37.532751, 55.542291));
+        firstM = new double[] { 0.88, 0.85, 0.85, 0.72, 0.64, 0.75, 0.80 };
+
+        routeCoordinates2 = new ArrayList<>();
+        routeCoordinates2.add(Point.fromLngLat(37.528245, 55.534180));
+        routeCoordinates2.add(Point.fromLngLat(37.528138, 55.534593));
+        routeCoordinates2.add(Point.fromLngLat(37.526850, 55.534921));
+        routeCoordinates2.add(Point.fromLngLat(37.526464, 55.536548));
+        routeCoordinates2.add(Point.fromLngLat(37.527859, 55.537398));
+        routeCoordinates2.add(Point.fromLngLat(37.527408, 55.538830));
+        routeCoordinates2.add(Point.fromLngLat(37.528395, 55.539340));
+        routeCoordinates2.add(Point.fromLngLat(37.527344, 55.540202));
+        routeCoordinates2.add(Point.fromLngLat(37.530241, 55.541210));
+        routeCoordinates2.add(Point.fromLngLat(37.532751, 55.542291));
+        secondM = new double[] { 0.88, 0.85, 0.90, 0.92, 1.00, 1.00, 1.00, 0.96, 0.85, 0.80 };
+
+        routeCoordinates3 = new ArrayList<>();
+        routeCoordinates3.add(Point.fromLngLat(37.528245, 55.534180));
+        routeCoordinates3.add(Point.fromLngLat(37.528138, 55.534593));
+        routeCoordinates3.add(Point.fromLngLat(37.528760, 55.534714));
+        routeCoordinates3.add(Point.fromLngLat(37.528352, 55.535588));
+        routeCoordinates3.add(Point.fromLngLat(37.528266, 55.536742));
+        routeCoordinates3.add(Point.fromLngLat(37.529425, 55.538223));
+        routeCoordinates3.add(Point.fromLngLat(37.529253, 55.539656));
+        routeCoordinates3.add(Point.fromLngLat(37.530927, 55.540482));
+        routeCoordinates3.add(Point.fromLngLat(37.532751, 55.542291));
+        thirdM = new double[] { 0.88, 0.85, 0.85, 0.72, 0.51, 0.75, 0.80, 0.80, 0.80 };
 
     }
 

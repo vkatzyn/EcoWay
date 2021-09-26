@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.bgu.ecoway.viewmodel.MainViewModel" />
@@ -19,19 +20,231 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:showIn="@layout/fragment_entry">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/route_suggestions_recycler_view"
-            adapter="@{viewModel.routeSuggestionsAdapter}"
-            android:layout_width="match_parent"
-            android:layout_height="102dp"
-            android:clipToPadding="false"
-            android:orientation="horizontal"
-            android:paddingStart="16dp"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintEnd_toEndOf="parent"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/item_route"
+            android:layout_width="95dp"
+            android:layout_height="71dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="15dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:listitem="@layout/route_suggestion_item" />
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="87dp"
+                android:layout_height="60dp"
+                android:background="@drawable/rounded_view_8dp"
+                android:backgroundTint="@color/chosen_route"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <TextView
+                    android:id="@+id/route_minutes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="12dp"
+                    android:fontFamily="@font/nunitosans_semibold"
+                    android:text="42 мин"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    app:layout_constraintBottom_toTopOf="@id/route_distance"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="42 мин" />
+
+
+                <TextView
+                    android:id="@+id/route_distance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:fontFamily="@font/nunitosans_regular"
+                    android:text="12 км"
+                    android:textColor="@color/opaq_black"
+                    android:textSize="13sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/route_minutes"
+                    tools:text="12 км" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <TextView
+                android:id="@+id/eco_score"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:background="@drawable/rounded_view_20dp"
+                android:backgroundTint="@color/greeny"
+                android:drawableStart="@drawable/ic_leaf"
+                android:drawableTint="@color/white"
+                android:paddingStart="4dp"
+                android:paddingEnd="4dp"
+                android:text="74%"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="100%" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/item_route2"
+            android:layout_width="95dp"
+            android:layout_height="71dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="15dp"
+            app:layout_constraintStart_toEndOf="@id/item_route"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="87dp"
+                android:layout_height="60dp"
+                android:background="@drawable/rounded_view_8dp"
+                android:backgroundTint="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <TextView
+                    android:id="@+id/route_minutes2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="12dp"
+                    android:fontFamily="@font/nunitosans_semibold"
+                    android:text="15 мин"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    app:layout_constraintBottom_toTopOf="@id/route_distance2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="42 мин" />
+
+
+                <TextView
+                    android:id="@+id/route_distance2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:fontFamily="@font/nunitosans_regular"
+                    android:text="3 км"
+                    android:textColor="@color/opaq_black"
+                    android:textSize="13sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/route_minutes2"
+                    tools:text="12 км" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <TextView
+                android:id="@+id/eco_score2"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:background="@drawable/rounded_view_20dp"
+                android:backgroundTint="@color/white"
+                android:drawableStart="@drawable/ic_leaf"
+                android:drawableTint="@color/white"
+                android:paddingStart="4dp"
+                android:paddingEnd="4dp"
+                android:text="95%"
+                android:textColor="#77000000"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="100%" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/item_route3"
+            android:layout_width="95dp"
+            android:layout_height="71dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="15dp"
+            app:layout_constraintStart_toEndOf="@id/item_route2"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="87dp"
+                android:layout_height="60dp"
+                android:background="@drawable/rounded_view_8dp"
+                android:backgroundTint="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <TextView
+                    android:id="@+id/route_minutes3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="12dp"
+                    android:fontFamily="@font/nunitosans_semibold"
+                    android:text="55 мин"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    app:layout_constraintBottom_toTopOf="@id/route_distance3"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="42 мин" />
+
+
+                <TextView
+                    android:id="@+id/route_distance3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:fontFamily="@font/nunitosans_regular"
+                    android:text="14 км"
+                    android:textColor="@color/opaq_black"
+                    android:textSize="13sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/route_minutes3"
+                    tools:text="12 км" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <TextView
+                android:id="@+id/eco_score3"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:background="@drawable/rounded_view_20dp"
+                android:backgroundTint="@color/white"
+                android:drawableStart="@drawable/ic_leaf"
+                android:drawableTint="@color/white"
+                android:paddingStart="4dp"
+                android:paddingEnd="4dp"
+                android:text="67%"
+                android:textColor="#77000000"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="100%" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="#AAFFFFFF"
+            app:layout_constraintBottom_toBottomOf="@id/item_route2"
+            app:layout_constraintEnd_toEndOf="@id/item_route3"
+            app:layout_constraintStart_toStartOf="@id/item_route2"
+            app:layout_constraintTop_toTopOf="@id/item_route2" />
+
 
         <com.google.android.material.button.MaterialButton
             android:layout_width="match_parent"
@@ -53,9 +266,9 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/route_suggestions_recycler_view" />
-
+            app:layout_constraintTop_toBottomOf="@id/item_route" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </layout>
